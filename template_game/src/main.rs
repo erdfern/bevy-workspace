@@ -2,19 +2,29 @@
 
 use bevy::prelude::*;
 
+use bevy::diagnostic::FrameTimeDiagnosticsPlugin;
+
 fn main() {
-    App::new()
-        .add_plugins(DefaultPlugins.set(WindowPlugin {
-            primary_window: Some(Window {
-                title: String::from("Bevy Template"),
-                ..default()
-            }),
+    let mut app = App::new();
+
+    app.add_plugins(DefaultPlugins.set(WindowPlugin {
+        primary_window: Some(Window {
+            title: String::from("Bevy Template"),
             ..default()
-        }))
-        // .add_plugins(template_lib::player::PlayerPlugin)
-        // .add_plugins(template_lib::graphics::GraphicsPlugin)
-        .add_systems(Startup, setup)
-        .run();
+        }),
+        ..default()
+    }))
+    // .add_plugins(template_lib::player::PlayerPlugin)
+    // .add_plugins(template_lib::graphics::GraphicsPlugin)
+    .add_systems(Startup, setup);
+
+    #[cfg(debug_assertions)] // debug/dev builds only
+    {
+        use bevy::diagnostic::LogDiagnosticsPlugin;
+        app.add_plugins((FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin::default()));
+    }
+
+    app.run();
 }
 
 /// set up a simple 3D scene
