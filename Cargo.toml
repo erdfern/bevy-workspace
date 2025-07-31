@@ -1,0 +1,24 @@
+[workspace]
+resolver = "3"
+
+members = ["template_game", "template_lib"]
+default-members = ["template_game", "template_lib"]
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+# missing_docs = "deny"
+
+[workspace.lints.clippy]
+type_complexity = "allow"
+# missing_docs_in_private_items = "deny"
+# doc_markdown = "warn"
+
+[workspace.dependencies]
+bevy = { version = "0.16", default-features = false, features = [
+  # https://github.com/bevyengine/bevy/blob/main/docs/cargo_features.md
+  "dynamic_linking",
+] }
+log = { version = "*", features = [
+  "max_level_debug",
+  "release_max_level_warn",
+] }

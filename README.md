@@ -1,0 +1,1 @@
+Rust/bevy workspace template
