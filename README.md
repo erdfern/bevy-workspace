@@ -1,1 +1,1 @@
-Rust/bevy workspace template
+Rust/Bevy workspace template

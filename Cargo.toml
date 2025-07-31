@@ -4,6 +4,11 @@ resolver = "3"
 members = ["template_game", "template_lib"]
 default-members = ["template_game", "template_lib"]
 
+[workspace.package]
+authors = []
+edition = "2024"
+version = "0.1.0"
+
 [workspace.lints.rust]
 unsafe_code = "forbid"
 # missing_docs = "deny"
