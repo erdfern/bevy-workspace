@@ -19,9 +19,13 @@ type_complexity = "allow"
 # doc_markdown = "warn"
 
 [workspace.dependencies]
-bevy = { version = "0.16", default-features = false, features = [
+bevy = { version = "0.18.1", default-features = false, features = [
   # https://github.com/bevyengine/bevy/blob/main/docs/cargo_features.md
   "dynamic_linking",
+  # "default",
+  # "2d"
+  # "3d"
+  # "ui"
 ] }
 log = { version = "*", features = [
   "max_level_debug",
